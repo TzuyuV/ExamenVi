@@ -1,0 +1,26 @@
+﻿@model List<ExamenVic.Models.ViewModels.ListaEstudiantes>
+
+<br>
+<form id="id_form" action="@Url.Action("GuardarCalificaciones","AreaDeTrabajo")" method="post">
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Calificación</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (ExamenVic.Models.ViewModels.ListaEstudiantes item in Model)
+                                {
+        <tr>
+                <td><input class="form-control" type="hidden" name="idUsuario[]" value="@item.idUsuario" readonly />@item.nombreUsuario</td>
+            <td><input type="number" id="id_cantidad" class="form-control" name="calif[]" min="0" value="@item.calificacion" onkeypress="Press(event);" style="width:70px" required /></td>
+
+        </tr>
+                                }
+    </tbody>
+</table>
+<center>
+    <input type="submit" class="btn btn-success text-white" value="Guardar cambios">
+    </center>
+</form>

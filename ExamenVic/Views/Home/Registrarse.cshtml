@@ -1,0 +1,53 @@
+﻿<div class="card-body p-5">
+    <h2 class="text-uppercase text-center mb-5">Crear una cuenta</h2>
+
+    @if (ViewData["Mensaje"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @ViewData["Mensaje"]
+        </div>
+    }
+
+    <form action="@Url.Action("Registrarse","Home")" method="post">
+
+        <div class="form-outline mb-4">
+            <input type="text" id="form3Example1cg" class="form-control form-control-lg" name="nombre" />
+            <label class="form-label" for="form3Example1cg">Nombre completo</label>
+        </div>
+
+        <div class="form-outline mb-4">
+            <input type="email" id="form3Example3cg" class="form-control form-control-lg" name="email" />
+            <label class="form-label" for="form3Example3cg">Correo electrónico</label>
+        </div>
+
+        <div class="form-outline mb-4">
+            <select class="form-select form-control-lg" name="rolUsuario">
+                <option value="1">Profesor</option>
+                <option value="2">Estudiante</option>
+            </select>
+            <label class="form-label" for="form3Example3cg">Rol</label>
+        </div>
+
+        <div class="form-outline mb-4">
+            <input type="password" id="form3Example4cg" class="form-control form-control-lg" name="contrasena" />
+            <label class="form-label" for="form3Example4cg" >Contraseña</label>
+        </div>
+
+        <div class="form-outline mb-4">
+            <input type="password" id="form3Example4cdg" class="form-control form-control-lg" name="contrasena2" />
+            <label class="form-label" for="form3Example4cdg" >Repita su contraseña</label>
+        </div>
+
+
+        <div class="d-flex justify-content-center">
+            <input type="submit" class="btn btn-primary text-white my-2" value="Registrar usuario">
+
+        </div>
+        <br />
+        <div class="d-flex justify-content-center">
+            <a class="btn btn-primary btn-lg btn-block" asp-area="" asp-controller="Home" asp-action="Index">Regresar</a>
+        </div>
+
+    </form>
+
+</div>

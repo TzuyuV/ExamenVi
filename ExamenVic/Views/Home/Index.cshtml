@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<section class="vh-100">
+    <div class="container py-5 h-100">
+        <div class="row d-flex align-items-center justify-content-center h-100">
+            <div class="col-md-8 col-lg-7 col-xl-6">
+                <img src="https://escuelainversa.files.wordpress.com/2022/03/ff7c525c1c3e1bef640644542001e1fd-logotipo-de-la-escuela-en-linea.png"
+                     class="img-fluid" alt="Phone image">
+            </div>
+            <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+                <form action="@Url.Action("Index","Home")" method="post">
+                    <h2>Sistema escolar</h2>
+                    <br />
+                    @if (ViewData["Mensaje"] != null)
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            @ViewData["Mensaje"]
+                        </div>
+                    }
+
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <input type="email" id="form1Example13" class="form-control form-control-lg" name="email" />
+                        <label class="form-label" for="form1Example13">Correo electrónico</label>
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                        <input type="password" id="form1Example23" class="form-control form-control-lg" name="contrasena"/>
+                        <label class="form-label" for="form1Example23">Contraseña</label>
+                    </div>
+
+
+                    <!-- Submit button -->
+
+                    <input type="submit" class="btn btn-primary text-white my-2" value="Iniciar sesión">
+
+                    <div class="divider d-flex align-items-center my-4">
+                        <p class="text-center fw-bold mx-3 mb-0 text-muted">O</p>
+                    </div>
+
+                    <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" asp-area="" asp-controller="Home" asp-action="Registrarse"
+                       role="button" >
+                        <i class="fab fa-facebook-f me-2"></i>Crear cuenta
+                    </a>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,56 @@
+﻿@model List<ExamenVic.Models.ViewModels.Materia>
+
+<br />
+<h4>Bienvenido estudiante</h4>
+<br />
+<div class="col-sm-4">
+            <form action="@Url.Action("cargarMateria","AreaDeTrabajo")">
+                <label>Cargar nueva materia: </label>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1"></label>
+                    <select class="form-control" name="idMateria" id="exampleFormControlSelect1" required>
+                        <option value="1">Español</option>
+                        <option value="2">Matematicas</option>
+                        <option value="3">Física</option>
+                        <option value="4">Química</option>
+                        <option value="5">Historia</option>
+                    </select>
+                </div>
+                <br />
+                <input type="submit" class="btn btn-primary btn-sm" value="Ingresar">
+            </form>
+</div>
+<br />
+<br />
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Materias</th>
+            <th scope="col">Calificaciones</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (ExamenVic.Models.ViewModels.Materia item in Model)
+                                {
+        <tr>
+            <td>@item.nombreMateria</td>
+                <td>@if (item.calificacion == -1) {
+                        <p>Sin calificación</p>
+                    }
+                    else
+                    {
+                        @item.calificacion
+                    }
+                </td>
+                <td><a class="btn btn-danger btn-sm" href="@Url.Action("EliminarCarga","AreaDeTrabajo", new { idCarga=item.idCarga })">Dar de baja</a></td>
+        </tr>
+                                }
+    </tbody>
+</table>
+<br />
+<a class="btn btn-primary btn-lg btn-block" style="background-color: #bb0000" asp-area="" asp-controller="Home" asp-action="Index"
+   role="button">
+    <i class="fab fa-facebook-f me-2"></i>Salir
+</a>
